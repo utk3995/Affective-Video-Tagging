@@ -1,0 +1,39 @@
+import numpy as np
+import cv2
+from sets import Set
+target = open('hueCountnewnew.txt', 'w')
+for ctr in range (0,9800) : 
+	aa = ("ACCEDE%05i.mp4" % ctr)
+	print aa
+	cap = cv2.VideoCapture(aa)
+	hueList=Set([])
+	hueCount=0
+	frames=0
+	while(True):
+
+	    ret, frame = cap.read()
+	    frames=frames+1
+	    if (type(frame) == type(None)):
+		    break
+	   
+	    hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+
+
+
+	    height, width, channels = hsv.shape
+	   
+
+	    for i in range(0,height):
+	    	for j in range(0,width):
+	      		hueList.add(hsv[i,j,0])
+
+	    hueCount+=len(hueList)
+	    hueList.clear()
+	   
+	   
+
+	cap.release()
+	cv2.destroyAllWindows()
+	print(hueCount/frames)
+	target.write((str)(hueCount/frames))
+	target.write('\n')

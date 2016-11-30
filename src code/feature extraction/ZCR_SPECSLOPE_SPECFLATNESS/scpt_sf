@@ -1,0 +1,26 @@
+#!/bin/bash
+
+for (( c=0; c<=9; c++ ))
+do  
+yaafe -r 44100 -f "sf: SpectralFlatness blockSize=1024 stepSize=512" ACCEDE0000$c.wav -p Precision=8 -p Metadata=False
+done
+
+for (( c=10; c<=99; c++ ))
+do  
+yaafe -r 44100 -f "sf: SpectralFlatness blockSize=1024 stepSize=512" ACCEDE000$c.wav -p Precision=8 -p Metadata=False
+done
+
+for (( c=100; c<=999; c++ ))
+do  
+yaafe -r 44100 -f "sf: SpectralFlatness blockSize=1024 stepSize=512" ACCEDE00$c.wav -p Precision=8 -p Metadata=False
+done
+
+for (( c=3000; c<=5000; c++ ))
+do  
+yaafe -r 44100 -f "sf: SpectralFlatness blockSize=1024 stepSize=512" ACCEDE0$c.wav -p Precision=8 -p Metadata=False
+done
+
+for (( c=7008; c<=9000; c++ ))
+do  
+yaafe -r 44100 -f "sf: SpectralFlatness blockSize=1024 stepSize=512" ACCEDE0$c.wav -p Precision=8 -p Metadata=False
+done
